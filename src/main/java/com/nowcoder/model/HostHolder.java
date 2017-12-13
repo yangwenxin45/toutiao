@@ -1,0 +1,25 @@
+package com.nowcoder.model;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * Created by 杨文鑫 on 2017/11/20.
+ */
+@Controller
+public class HostHolder {
+
+    private static ThreadLocal<User> users = new ThreadLocal<User>();
+
+    public User getUser() {
+        return users.get();
+    }
+
+    public void setUsers(User user) {
+        users.set(user);
+    }
+
+    public void clear() {
+        users.remove();
+    }
+
+}
